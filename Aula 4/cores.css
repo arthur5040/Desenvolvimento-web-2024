@@ -1,0 +1,23 @@
+body h1{ font-size: xx-large;
+}
+div#fixa{
+    color: yellow;
+    background-color: red;
+    min-height: 2rem;
+    
+}
+body{
+    font-family: "Playwrite CU", cursive;
+}
+
+div#relativa{
+    background-color: blue;
+    min-height: 5em;
+    width: 50vw;
+}
+
+span{
+    color: red;
+    font-weight: bold;
+    background-color: lightblue;
+}

@@ -1,0 +1,11 @@
+#cabeçalho{
+    color:hotpink;
+    border-bottom: 10px dotted purple;
+    font-style: italic;
+}
+#informações{
+    background-color: #eeeeee;
+    border: purple 5px solid;
+    padding-left: 20px;
+}
+
