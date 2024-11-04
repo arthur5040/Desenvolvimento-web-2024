@@ -1,20 +1,41 @@
 const container = document.getElementById("container");
 
-let conteudo = ''
+const pega_json = async (caminho) => {
+    const resposta = await fetch(caminho)
+    const dados = await resposta.json()
+    return dados
+}
 
-const montaCard = (atleta) => `
-    <article>
-    <h1>${atleta.nome}</h1>
-    <img src=${atleta.imagem}>
-    <p>${atleta.detalhes}</p>
-    </article>
-`
-/*for (let i = 0; i < dados.length; i++){
-    let atleta =dados[i];
+const montaCard = (atleta) => {
+    const cartao = document.createElement("article");
+    const nome = document.createElement("h1");
+    const imagem = document.createElement("img");
+    const descri = document.createElement("p");
+    const link = document.createElement("a");
 
-    conteudo += montaCard(atleta);
-}*/
+    nome.innerHTML = atleta.nome;
+    cartao.appendChild(nome);
 
-dados.forEach((atleta) => conteudo += montaCard(atleta))
+    imagem.src = atleta.imagem;
+    cartao.appendChild(imagem);
 
-container.innerHTML = conteudo;
+    descri.innerHTML = atleta.detalhes
+    cartao.appendChild(descri);
+
+    link.innerHTML = "Saiba mais..."
+    link.href = `detalhes.html?id=${atleta.id}&altura=${atleta.altura}`
+    cartao.appendChild(link);
+
+    container.appendChild(cartao);
+}
+
+pega_json("https://botafogo-atletas.mange.li/2024-1/all").then(
+    ( variavel ) => {
+        variavel.forEach((atleta) => montaCard(atleta))
+    console.log("Isso imprime depois")
+    }
+)
+
+console.log("Isso imprime antes");
+
+
